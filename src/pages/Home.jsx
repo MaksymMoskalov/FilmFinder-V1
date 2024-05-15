@@ -1,28 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
-import { getTrendMovies } from 'service/moviesAPI';
+import {
+  selectDayTopMovies,
+  selectMoviesError,
+} from '../redux/films/films.selectors';
+import { topDayMoviesThunk } from '../redux/films/filmsOperations';
 
 const Home = () => {
-  const [movies, setMovies] = useState([]);
-  const [error, setError] = useState(null);
+  const topDayMovie = useSelector(selectDayTopMovies);
+  const movieError = useSelector(selectMoviesError);
+
   const location = useLocation();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const renderHome = async () => {
-      try {
-        const movieData = await getTrendMovies();
-        setMovies(movieData.results);
-      } catch (error) {
-        setError(error.message);
-      }
-    };
-    renderHome();
-  }, []);
+    dispatch(topDayMoviesThunk());
+  }, [dispatch]);
 
   return (
     <ul>
-      {error && window.alert(error)}
-      {movies.map(({ id, original_title }) => {
+      {movieError && window.alert(movieError)}
+      {topDayMovie.map(({ id, original_title }) => {
         return (
           <li key={id}>
             <Link

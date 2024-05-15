@@ -1,0 +1,10 @@
+export const selectDayTopMovies = state => state.films.dayTopMovies;
+export const selectWeekTopMovies = state => state.films.weekTopMovies;
+export const selectUpcomingMovies = state => state.films.upcomingMovies;
+export const selectSearchedMovies = state => state.films.searchedMovies;
+export const selectFilmData = state => state.films.filmData;
+export const selectData = state => state.films.filmData.data;
+export const selectFilmCast = state => state.films.filmData.cast;
+export const selectFilmReviews = state => state.films.filmData.reviews;
+export const selectMoviesIsLoading = state => state.films.isLoading;
+export const selectMoviesError = state => state.films.error;

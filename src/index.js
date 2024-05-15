@@ -4,10 +4,18 @@ import { BrowserRouter } from 'react-router-dom';
 import { App } from 'components/App';
 import './index.css';
 
+import { Provider } from 'react-redux';
+import { persistor, store } from './redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/goit-react-hw-05-movies">
-      <App />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter basename="/FilmFinder-V1">
+        <PersistGate persistor={persistor}>
+          <App />
+        </PersistGate>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
