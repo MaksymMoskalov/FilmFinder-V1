@@ -1,6 +1,6 @@
 export const selectDayTopMovies = state => state.films.dayTopMovies;
 export const selectWeekTopMovies = state => state.films.weekTopMovies;
-export const selectUpcomingMovies = state => state.films.upcomingMovies;
+export const selectTopRatedMovies = state => state.films.topRatedMovies;
 export const selectSearchedMovies = state => state.films.searchedMovies;
 export const selectFilmData = state => state.films.filmData;
 export const selectData = state => state.films.filmData.data;

@@ -5,7 +5,7 @@ import {
   movieReviewsThunk,
   topDayMoviesThunk,
   topWeekMoviesThunk,
-  upcomingMoviesThunk,
+  topRatedMoviesThunk,
 } from './filmsOperations';
 
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
@@ -13,7 +13,7 @@ import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 const INITIAL_STATE = {
   dayTopMovies: [],
   weekTopMovies: [],
-  upcomingMovies: [],
+  topRatedMovies: [],
   searchedMovies: [],
   filmData: {
     data: null,
@@ -38,9 +38,9 @@ const moviesSlice = createSlice({
         state.weekTopMovies = action.payload.results;
       })
 
-      .addCase(upcomingMoviesThunk.fulfilled, (state, action) => {
+      .addCase(topRatedMoviesThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.upcomingMovies = action.payload.results;
+        state.topRatedMovies = action.payload.results;
       })
 
       .addCase(movieByKeyWordThunk.fulfilled, (state, action) => {
@@ -67,7 +67,7 @@ const moviesSlice = createSlice({
         isAnyOf(
           topDayMoviesThunk.pending,
           topWeekMoviesThunk.pending,
-          upcomingMoviesThunk.pending,
+          topRatedMoviesThunk.pending,
           movieByKeyWordThunk.pending,
           movieDetailsThunk.pending,
           movieCastThunk.pending,
@@ -82,7 +82,7 @@ const moviesSlice = createSlice({
         isAnyOf(
           topDayMoviesThunk.rejected,
           topWeekMoviesThunk.rejected,
-          upcomingMoviesThunk.rejected,
+          topRatedMoviesThunk.rejected,
           movieByKeyWordThunk.rejected,
           movieDetailsThunk.rejected,
           movieCastThunk.rejected,

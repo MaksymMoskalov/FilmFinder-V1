@@ -1,13 +1,14 @@
 import MovieItem from 'components/MovieItem/MovieItem';
 import React from 'react';
+import { StyledList } from './MovieList.styled';
 
 const MovieList = ({ topDayMovie }) => {
   return (
-    <ul>
+    <StyledList>
       {topDayMovie.map(movie => {
-        return <MovieItem movie={movie} />;
+        return <MovieItem movie={movie} key={movie.id} />;
       })}
-    </ul>
+    </StyledList>
   );
 };
 

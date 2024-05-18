@@ -4,25 +4,46 @@ import Notiflix from 'notiflix';
 import {
   selectDayTopMovies,
   selectMoviesError,
+  selectTopRatedMovies,
+  selectWeekTopMovies,
 } from '../redux/films/films.selectors';
-import { topDayMoviesThunk } from '../redux/films/filmsOperations';
-import MovieList from 'components/MovieList/MovieList';
+import {
+  topDayMoviesThunk,
+  topWeekMoviesThunk,
+  topRatedMoviesThunk,
+} from '../redux/films/filmsOperations';
+import { StyledContainer } from 'Styles/Container.styled';
+import Category from 'components/Category/Category';
 
 const Home = () => {
   const topDayMovie = useSelector(selectDayTopMovies);
+  const topWeekMovie = useSelector(selectWeekTopMovies);
+  const topRatedMovies = useSelector(selectTopRatedMovies);
   const movieError = useSelector(selectMoviesError);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(topDayMoviesThunk());
+    dispatch(topWeekMoviesThunk());
+    dispatch(topRatedMoviesThunk());
   }, [dispatch]);
 
   return (
-    <>
-      {movieError && Notiflix.Notify.failure(movieError)}
-      <MovieList topDayMovie={topDayMovie} />
-    </>
+    <section>
+      <StyledContainer>
+        {movieError && Notiflix.Notify.failure(movieError)}
+        <Category moviesFromCategory={topDayMovie} categoryTitle={'Топ Дня'} />
+        <Category
+          moviesFromCategory={topWeekMovie}
+          categoryTitle={'Топ Тижня'}
+        />
+        <Category
+          moviesFromCategory={topRatedMovies}
+          categoryTitle={'Найпопулярніші'}
+        />
+      </StyledContainer>
+    </section>
   );
 };
 

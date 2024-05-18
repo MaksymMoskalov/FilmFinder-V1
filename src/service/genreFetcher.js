@@ -59,7 +59,7 @@ export const genreFetcher = ids => {
         return 'Вестерн';
 
       default:
-        break;
+        return 'Невідомий Жанр';
     }
   });
 

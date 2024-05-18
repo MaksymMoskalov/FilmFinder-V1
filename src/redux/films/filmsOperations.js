@@ -4,7 +4,7 @@ import {
   getMovieCast,
   getMovieDetails,
   getMovieReviews,
-  getUpcoming,
+  getTopRated,
   getWeekTrendMovies,
 } from 'service/moviesAPI';
 
@@ -34,11 +34,11 @@ export const topWeekMoviesThunk = createAsyncThunk(
   }
 );
 
-export const upcomingMoviesThunk = createAsyncThunk(
-  'movie/upcoming',
+export const topRatedMoviesThunk = createAsyncThunk(
+  'movie/topRated',
   async (_, thunkAPI) => {
     try {
-      const moviesData = await getUpcoming();
+      const moviesData = await getTopRated();
       return moviesData;
     } catch (error) {
       thunkAPI.rejectWithValue(error.message);

@@ -1,24 +1,15 @@
-import { NavLink, Route, Routes } from 'react-router-dom';
-import { StyledContainer } from 'Styles/Container.styled';
+import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import { Blocks } from 'react-loader-spinner';
+import Header from './Header/Header';
 const Home = lazy(() => import('pages/Home'));
 const MovieInfo = lazy(() => import('pages/MovieInfo'));
 const Search = lazy(() => import('pages/Search'));
 
 export const App = () => {
   return (
-    <StyledContainer>
-      <header className="header">
-        <nav>
-          <NavLink to={'/'} className="header-link">
-            Home
-          </NavLink>
-          <NavLink to={'/movies'} className="header-link">
-            Movies
-          </NavLink>
-        </nav>
-      </header>
+    <>
+      <Header />
       <Suspense
         fallback={
           <Blocks
@@ -35,6 +26,6 @@ export const App = () => {
           <Route path="/movies/:movieId/*" element={<MovieInfo />} />
         </Routes>
       </Suspense>
-    </StyledContainer>
+    </>
   );
 };
