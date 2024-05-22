@@ -1,15 +1,22 @@
 import { Route, Routes } from 'react-router-dom';
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { Blocks } from 'react-loader-spinner';
 import Header from './Header/Header';
 import LoginPage from 'pages/LogIn/LogIn';
 import RegisterPage from 'pages/Register/Register';
 import RestrictedRoute from './Routes/RestrictedRoute';
+import { useDispatch } from 'react-redux';
+import { refreshThunk } from '../redux/authorization/authOperations';
 const Home = lazy(() => import('pages/Home'));
 const MovieInfo = lazy(() => import('pages/MovieInfo'));
 const Search = lazy(() => import('pages/Search'));
 
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshThunk());
+  }, [dispatch]);
   return (
     <>
       <Header />

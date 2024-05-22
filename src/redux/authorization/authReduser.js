@@ -11,7 +11,7 @@ const INITIAL_STATE = {
   token: null,
   user: {
     email: null,
-    name: null,
+    userName: null,
   },
   authenticated: false,
   isLoading: false,
