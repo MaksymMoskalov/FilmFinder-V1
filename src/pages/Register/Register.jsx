@@ -21,13 +21,13 @@ const RegisterPage = () => {
     <form onSubmit={handleSubmit(onSubmit)} className="login-form">
       <div className="form__group field">
         <input
-          {...register('name', { required: true })}
+          {...register('userName', { required: true })}
           type="text"
           className="form__field"
           placeholder="Name"
         />
         <label className="form__label">Name</label>
-        {errors.name && (
+        {errors.userName && (
           <span className="error-message">This field is required</span>
         )}
       </div>
