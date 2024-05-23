@@ -14,7 +14,7 @@ import {
   Text,
   Title,
 } from './MovieInfo.styled';
-import { Link, NavLink, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { Blocks } from 'react-loader-spinner';
 import { BASE_BACKDROP_URL, LARGE_POSTER_URL } from 'service/moviesAPI';
 import { extractYear } from 'service/genreFetcher';
