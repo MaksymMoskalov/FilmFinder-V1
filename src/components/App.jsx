@@ -8,7 +8,7 @@ import RestrictedRoute from './Routes/RestrictedRoute';
 import { useDispatch } from 'react-redux';
 import { refreshThunk } from '../redux/authorization/authOperations';
 const Home = lazy(() => import('pages/Home'));
-const MovieInfo = lazy(() => import('pages/MovieInfo'));
+const InfoPage = lazy(() => import('pages/MovieInfo'));
 const Search = lazy(() => import('pages/Search'));
 
 export const App = () => {
@@ -49,7 +49,7 @@ export const App = () => {
             }
           />
           <Route path="/movies" element={<Search />} />
-          <Route path="/movies/:movieId/*" element={<MovieInfo />} />
+          <Route path="/movies/:movieId/*" element={<InfoPage />} />
         </Routes>
       </Suspense>
     </>
