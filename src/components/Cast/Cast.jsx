@@ -1,43 +1,37 @@
-import { useEffect, useState } from 'react';
-import { getMovieCast } from 'service/moviesAPI';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFilmCast } from '../../redux/films/films.selectors';
+import { movieCastThunk } from '../../redux/films/filmsOperations';
+import 'simplebar-react/dist/simplebar.min.css';
+import { ActorImg, ActorWrapper, CastItem, CastList } from './Cast.styled';
 
 const Cast = ({ movieId }) => {
-  const [cast, setCast] = useState(null);
-  const [error, setError] = useState(null);
   const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w200';
+  const dispatch = useDispatch();
+  const cast = useSelector(selectFilmCast);
 
   useEffect(() => {
     if (!movieId) return;
-    const movieCast = async () => {
-      try {
-        const movieData = await getMovieCast(movieId);
-        setCast(movieData);
-      } catch (error) {
-        setError(error.message);
-      }
-    };
-    movieCast();
-  }, [movieId]);
+    dispatch(movieCastThunk(movieId));
+  }, [dispatch, movieId]);
 
   return (
-    <div>
-      {cast !== null && (
-        <ul>
-          {cast.map(({ name, character, profile_path, id }) => {
-            return (
-              <li key={id}>
-                <img src={BASE_IMG_URL + profile_path} alt={name} />
-                <p>{name}</p>
-                <p>
-                  <span className="bold">Character:</span> {character}
-                </p>
-              </li>
-            );
-          })}
-        </ul>
-      )}
-      {error && window.alert(error)}
-    </div>
+    cast && (
+      <CastList>
+        {cast.slice(0, 7).map(({ name, character, profile_path, id }) => {
+          return (
+            <CastItem key={id}>
+              <ActorWrapper>
+                <ActorImg src={BASE_IMG_URL + profile_path} alt={name} />
+              </ActorWrapper>
+              <p>{name}</p>
+              <p>Персонаж: </p>
+              <p>{character}</p>
+            </CastItem>
+          );
+        })}
+      </CastList>
+    )
   );
 };
 

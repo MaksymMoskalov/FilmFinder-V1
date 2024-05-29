@@ -3,7 +3,9 @@ import {
   getMovieByKeyWord,
   getMovieCast,
   getMovieDetails,
+  getMovieGenres,
   getMovieReviews,
+  getSortedMovies,
   getTopRated,
   getWeekTrendMovies,
 } from 'service/moviesAPI';
@@ -88,6 +90,30 @@ export const movieByKeyWordThunk = createAsyncThunk(
     try {
       const movieByKeyWord = await getMovieByKeyWord(keyWord);
       return movieByKeyWord;
+    } catch (error) {
+      thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const movieGenresThunk = createAsyncThunk(
+  'movie/genres',
+  async (_, thunkAPI) => {
+    try {
+      const genres = await getMovieGenres();
+      return genres;
+    } catch (error) {
+      thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const movieSortedThunk = createAsyncThunk(
+  'movie/sortedMovies',
+  async (data, thunkAPI) => {
+    try {
+      const movies = await getSortedMovies(data);
+      return movies;
     } catch (error) {
       thunkAPI.rejectWithValue(error.message);
     }

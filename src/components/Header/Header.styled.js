@@ -9,7 +9,7 @@ export const StyledHeared = styled.header`
   padding-right: 42px;
 
   background-color: #0d1117;
-  border-bottom: 1px solid grey;
+
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 
@@ -24,6 +24,24 @@ export const StyledHeared = styled.header`
     &.active {
       color: #ad9236;
     }
+  }
+
+  .login {
+    padding: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    color: white;
+    margin-left: auto;
+    &:hover {
+      color: #ad9236;
+    }
+    &.active {
+      color: #ad9236;
+    }
+  }
+
+  .search {
+    margin-left: 300px;
   }
 `;
 

@@ -7,6 +7,8 @@ import {
   selectAuthUtherData,
 } from '../../redux/authorization/auth.selectors';
 import { logOutThunk } from '../../redux/authorization/authOperations';
+import SearchBar from 'components/SearchBar/SearchBar';
+import { handlResetSearch } from '../../redux/films/filmsReduser';
 
 const Header = () => {
   const authenticated = useSelector(selectAuthAuthenticated);
@@ -17,30 +19,21 @@ const Header = () => {
     disputch(logOutThunk());
   };
 
+  const reset = () => {
+    disputch(handlResetSearch());
+  };
+
   return (
     <StyledHeared>
       <Logo to={'/'}>
         <Acsent>Film</Acsent>Finder
       </Logo>
       <StyledNav>
-        <NavLink to={'/'} className="header-link">
+        <NavLink to={'/'} className="header-link" onClick={reset}>
           Home
         </NavLink>
-        <NavLink to={'/movies'} className="header-link">
-          Movies
-        </NavLink>
-
-        {!authenticated && (
-          <>
-            <NavLink to={'/login'} className="header-link">
-              LogIn
-            </NavLink>
-            <NavLink to={'/register'} className="header-link">
-              Register
-            </NavLink>
-          </>
-        )}
       </StyledNav>
+      <SearchBar />
       {authenticated && (
         <div>
           <p>Hello {user.userName}</p>
@@ -48,6 +41,11 @@ const Header = () => {
             Вихід
           </button>
         </div>
+      )}
+      {!authenticated && (
+        <NavLink to={'/login'} className="login">
+          LogIn
+        </NavLink>
       )}
     </StyledHeared>
   );

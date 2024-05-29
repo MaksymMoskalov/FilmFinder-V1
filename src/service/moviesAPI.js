@@ -55,3 +55,18 @@ export const getMovieByKeyWord = async keyWord => {
   );
   return data.results;
 };
+
+export const getMovieGenres = async () => {
+  const { data } = await axios.get(
+    `https://api.themoviedb.org/3/genre/movie/list?language=uk-UK&api_key=${API_KEY}`
+  );
+  return data;
+};
+
+export const getSortedMovies = async params => {
+  console.log(params);
+  const { data } = await axios.get(
+    `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&language=uk-UK&with_genres=${params.genre}&year=${params.year}&api_key=${API_KEY}`
+  );
+  return data.results;
+};

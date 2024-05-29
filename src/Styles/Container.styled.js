@@ -5,6 +5,7 @@ export const StyledContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   background-color: #0d1117;
+  border-top: 1px solid grey;
   /* .header {
     height: 60px;
     display: flex;

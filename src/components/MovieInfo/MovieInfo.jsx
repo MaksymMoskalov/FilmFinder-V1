@@ -1,11 +1,13 @@
 import React, { Suspense, lazy } from 'react';
 import { MdFavorite } from 'react-icons/md';
-import { MdReviews } from 'react-icons/md';
-
+import { FaPerson } from 'react-icons/fa6';
 import {
   ActionBtn,
   BackDrop,
   ButtonWrapper,
+  CastBtn,
+  CastWrapper,
+  GoBackBtn,
   InfoWrapper,
   MovieData,
   Overview,
@@ -32,6 +34,9 @@ const MovieInfo = ({ movie, backLinkHref, movieId }) => {
           })`,
         }}
       >
+        <GoBackBtn to={backLinkHref.current} className="back-btn">
+          Повернутись
+        </GoBackBtn>
         <InfoWrapper>
           <PosterWrapper>
             <img
@@ -54,28 +59,18 @@ const MovieInfo = ({ movie, backLinkHref, movieId }) => {
               </Text>
             </Shorts>
             <Overview>{movie.overview}</Overview>
+            <CastWrapper>
+              <CastBtn to={'cast'} className="details-link">
+                Акторський склад <FaPerson />
+              </CastBtn>
+            </CastWrapper>
             <ButtonWrapper>
               <ActionBtn type="button">
                 До улюблених <MdFavorite className="button-icon" />
               </ActionBtn>
-              <ActionBtn type="button">
-                До переглянутих <MdReviews className="button-icon" />
-              </ActionBtn>
             </ButtonWrapper>
           </MovieData>
         </InfoWrapper>
-
-        {/* <Link to={backLinkHref.current} className="back-btn">
-          Go back
-        </Link>
-        <div>
-          <NavLink to={'cast'} className="details-link">
-            Cast
-          </NavLink>
-          <NavLink to={'reviews'} className="details-link">
-            Reviews
-          </NavLink>
-        </div> */}
 
         <Suspense
           fallback={

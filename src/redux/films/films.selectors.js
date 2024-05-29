@@ -2,6 +2,7 @@ export const selectDayTopMovies = state => state.films.dayTopMovies;
 export const selectWeekTopMovies = state => state.films.weekTopMovies;
 export const selectTopRatedMovies = state => state.films.topRatedMovies;
 export const selectSearchedMovies = state => state.films.searchedMovies;
+export const selectGenres = state => state.films.genres;
 export const selectFilmData = state => state.films.filmData;
 export const selectData = state => state.films.filmData.data;
 export const selectFilmCast = state => state.films.filmData.cast;

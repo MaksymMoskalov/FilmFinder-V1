@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const BackDrop = styled.section`
@@ -15,7 +16,7 @@ export const InfoWrapper = styled.div`
   display: flex;
   justify-content: center;
   gap: 66px;
-  padding-top: 200px;
+  padding-top: 125px;
 
   /* padding-left: 400px;
   padding-right: 400px; */
@@ -58,10 +59,13 @@ export const Shorts = styled.p`
 
 export const Overview = styled.p`
   margin-bottom: 20px;
+  height: 108px;
+  overflow: auto;
 `;
 
 export const ButtonWrapper = styled.div`
   display: flex;
+  justify-content: flex-end;
 `;
 
 export const ActionBtn = styled.button`
@@ -77,11 +81,47 @@ export const ActionBtn = styled.button`
   &:not(:last-child) {
     margin-right: 10px;
   }
-  &:last-child {
-    background-color: #5662f6;
-  }
 
   .button-icon {
     margin-left: 8px;
+  }
+`;
+
+export const CastWrapper = styled.div`
+  margin-bottom: 60px;
+`;
+
+export const CastBtn = styled(Link)`
+  display: inline-block;
+  padding: 6px;
+
+  font-size: 16px;
+  color: white;
+  background-color: transparent;
+
+  border-bottom: 2px solid white;
+
+  &:hover {
+    border-bottom: 2px solid yellow;
+    color: #ad9236;
+  }
+`;
+
+export const GoBackBtn = styled(Link)`
+  display: inline-block;
+  padding: 6px;
+  margin-left: 24px;
+  margin-top: 24px;
+
+  font-size: 16px;
+  color: white;
+  background-color: transparent;
+
+  border: 2px solid yellow;
+  border-radius: 10px;
+
+  &:hover {
+    border: 2px solid #ad9236;
+    color: yellow;
   }
 `;

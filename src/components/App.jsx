@@ -7,15 +7,16 @@ import RegisterPage from 'pages/Register/Register';
 import RestrictedRoute from './Routes/RestrictedRoute';
 import { useDispatch } from 'react-redux';
 import { refreshThunk } from '../redux/authorization/authOperations';
+import { movieGenresThunk } from '../redux/films/filmsOperations';
 const Home = lazy(() => import('pages/Home'));
 const InfoPage = lazy(() => import('pages/MovieInfo'));
-const Search = lazy(() => import('pages/Search'));
 
 export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(refreshThunk());
+    dispatch(movieGenresThunk());
   }, [dispatch]);
   return (
     <>
@@ -48,7 +49,6 @@ export const App = () => {
               </RestrictedRoute>
             }
           />
-          <Route path="/movies" element={<Search />} />
           <Route path="/movies/:movieId/*" element={<InfoPage />} />
         </Routes>
       </Suspense>

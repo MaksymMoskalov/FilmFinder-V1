@@ -6,6 +6,8 @@ import {
   topDayMoviesThunk,
   topWeekMoviesThunk,
   topRatedMoviesThunk,
+  movieGenresThunk,
+  movieSortedThunk,
 } from './filmsOperations';
 
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
@@ -15,6 +17,7 @@ const INITIAL_STATE = {
   weekTopMovies: [],
   topRatedMovies: [],
   searchedMovies: [],
+  genres: [],
   filmData: {
     data: null,
     cast: null,
@@ -26,6 +29,18 @@ const INITIAL_STATE = {
 const moviesSlice = createSlice({
   name: 'moviesDetails',
   initialState: INITIAL_STATE,
+  reducers: {
+    handlResetFilmData(state, _) {
+      state.filmData = {
+        data: null,
+        cast: null,
+        reviews: null,
+      };
+    },
+    handlResetSearch(state, _) {
+      state.searchedMovies = [];
+    },
+  },
   extraReducers: builder =>
     builder
       .addCase(topDayMoviesThunk.fulfilled, (state, action) => {
@@ -45,7 +60,7 @@ const moviesSlice = createSlice({
 
       .addCase(movieByKeyWordThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.searchedMovies = action.payload.results;
+        state.searchedMovies = action.payload;
       })
 
       .addCase(movieDetailsThunk.fulfilled, (state, action) => {
@@ -55,12 +70,20 @@ const moviesSlice = createSlice({
 
       .addCase(movieCastThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.filmData.cast = action.payload.cast;
+        state.filmData.cast = action.payload;
       })
 
       .addCase(movieReviewsThunk.fulfilled, (state, action) => {
         state.isLoading = false;
         state.filmData.reviews = action.payload.results;
+      })
+      .addCase(movieGenresThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.genres = action.payload.genres;
+      })
+      .addCase(movieSortedThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.searchedMovies = action.payload;
       })
 
       .addMatcher(
@@ -71,7 +94,9 @@ const moviesSlice = createSlice({
           movieByKeyWordThunk.pending,
           movieDetailsThunk.pending,
           movieCastThunk.pending,
-          movieReviewsThunk.pending
+          movieReviewsThunk.pending,
+          movieGenresThunk.pending,
+          movieSortedThunk.pending
         ),
         (state, action) => {
           state.isLoading = true;
@@ -86,7 +111,9 @@ const moviesSlice = createSlice({
           movieByKeyWordThunk.rejected,
           movieDetailsThunk.rejected,
           movieCastThunk.rejected,
-          movieReviewsThunk.rejected
+          movieReviewsThunk.rejected,
+          movieGenresThunk.rejected,
+          movieSortedThunk.rejected
         ),
         (state, action) => {
           state.isLoading = false;
@@ -95,4 +122,5 @@ const moviesSlice = createSlice({
       ),
 });
 
+export const { handlResetFilmData, handlResetSearch } = moviesSlice.actions;
 export const moviesReducer = moviesSlice.reducer;
