@@ -1,27 +1,27 @@
 {
   "files": {
     "main.css": "/FilmFinder-V1/static/css/main.4840469b.css",
-    "main.js": "/FilmFinder-V1/static/js/main.3271fd8a.js",
-    "static/js/195.1a8bad6a.chunk.js": "/FilmFinder-V1/static/js/195.1a8bad6a.chunk.js",
-    "static/js/382.6b419772.chunk.js": "/FilmFinder-V1/static/js/382.6b419772.chunk.js",
-    "static/js/565.d6a4ad87.chunk.js": "/FilmFinder-V1/static/js/565.d6a4ad87.chunk.js",
-    "static/js/247.d06d0545.chunk.js": "/FilmFinder-V1/static/js/247.d06d0545.chunk.js",
+    "main.js": "/FilmFinder-V1/static/js/main.2e809d71.js",
+    "static/js/471.525083d1.chunk.js": "/FilmFinder-V1/static/js/471.525083d1.chunk.js",
+    "static/js/382.2d6bf6c1.chunk.js": "/FilmFinder-V1/static/js/382.2d6bf6c1.chunk.js",
+    "static/css/546.53036aaa.chunk.css": "/FilmFinder-V1/static/css/546.53036aaa.chunk.css",
+    "static/js/546.721a6b84.chunk.js": "/FilmFinder-V1/static/js/546.721a6b84.chunk.js",
     "static/js/186.168a63bb.chunk.js": "/FilmFinder-V1/static/js/186.168a63bb.chunk.js",
-    "static/js/520.ee60898c.chunk.js": "/FilmFinder-V1/static/js/520.ee60898c.chunk.js",
+    "static/js/519.7562421f.chunk.js": "/FilmFinder-V1/static/js/519.7562421f.chunk.js",
     "static/js/694.fdcfe1a2.chunk.js": "/FilmFinder-V1/static/js/694.fdcfe1a2.chunk.js",
     "index.html": "/FilmFinder-V1/index.html",
     "main.4840469b.css.map": "/FilmFinder-V1/static/css/main.4840469b.css.map",
-    "main.3271fd8a.js.map": "/FilmFinder-V1/static/js/main.3271fd8a.js.map",
-    "195.1a8bad6a.chunk.js.map": "/FilmFinder-V1/static/js/195.1a8bad6a.chunk.js.map",
-    "382.6b419772.chunk.js.map": "/FilmFinder-V1/static/js/382.6b419772.chunk.js.map",
-    "565.d6a4ad87.chunk.js.map": "/FilmFinder-V1/static/js/565.d6a4ad87.chunk.js.map",
-    "247.d06d0545.chunk.js.map": "/FilmFinder-V1/static/js/247.d06d0545.chunk.js.map",
+    "main.2e809d71.js.map": "/FilmFinder-V1/static/js/main.2e809d71.js.map",
+    "471.525083d1.chunk.js.map": "/FilmFinder-V1/static/js/471.525083d1.chunk.js.map",
+    "382.2d6bf6c1.chunk.js.map": "/FilmFinder-V1/static/js/382.2d6bf6c1.chunk.js.map",
+    "546.53036aaa.chunk.css.map": "/FilmFinder-V1/static/css/546.53036aaa.chunk.css.map",
+    "546.721a6b84.chunk.js.map": "/FilmFinder-V1/static/js/546.721a6b84.chunk.js.map",
     "186.168a63bb.chunk.js.map": "/FilmFinder-V1/static/js/186.168a63bb.chunk.js.map",
-    "520.ee60898c.chunk.js.map": "/FilmFinder-V1/static/js/520.ee60898c.chunk.js.map",
+    "519.7562421f.chunk.js.map": "/FilmFinder-V1/static/js/519.7562421f.chunk.js.map",
     "694.fdcfe1a2.chunk.js.map": "/FilmFinder-V1/static/js/694.fdcfe1a2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4840469b.css",
-    "static/js/main.3271fd8a.js"
+    "static/js/main.2e809d71.js"
   ]
 }
