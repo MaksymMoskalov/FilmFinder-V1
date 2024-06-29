@@ -20,13 +20,11 @@ const FilterBar = () => {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = data => {
     dispatch(movieSortedThunk(data));
-    console.log(data);
   };
 
   return (

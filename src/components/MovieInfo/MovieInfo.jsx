@@ -1,8 +1,6 @@
 import React, { Suspense, lazy } from 'react';
-import { MdFavorite } from 'react-icons/md';
 import { FaPerson } from 'react-icons/fa6';
 import {
-  ActionBtn,
   BackDrop,
   ButtonWrapper,
   CastBtn,
