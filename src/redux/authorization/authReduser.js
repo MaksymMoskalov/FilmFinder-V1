@@ -4,7 +4,7 @@ import {
   refreshThunk,
   registerThunk,
 } from './authOperations';
-
+import Notiflix from 'notiflix';
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 
 const INITIAL_STATE = {
@@ -27,6 +27,7 @@ const authorizationSlice = createSlice({
         state.authenticated = true;
         state.token = action.payload.token;
         state.user = action.payload.user;
+        Notiflix.Notify.success('Успішно зареєстровано');
       })
 
       .addCase(loginThunk.fulfilled, (state, action) => {
@@ -34,6 +35,7 @@ const authorizationSlice = createSlice({
         state.authenticated = true;
         state.token = action.payload.token;
         state.user = action.payload.user;
+        Notiflix.Notify.info('Авторизовано успішно');
       })
 
       .addCase(refreshThunk.fulfilled, (state, action) => {

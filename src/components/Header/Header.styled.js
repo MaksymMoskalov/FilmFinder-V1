@@ -57,3 +57,37 @@ export const Acsent = styled.span`
 export const StyledNav = styled.nav`
   margin-left: 42px;
 `;
+
+export const UserWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 80px;
+
+  .exit-btn {
+    display: block;
+    height: 35px;
+    margin-left: 20px;
+
+    font-size: 16px;
+    color: gray;
+    background-color: transparent;
+
+    border: 2px solid #ad9236;
+    border-radius: 10px;
+
+    &:hover {
+      border: 2px solid yellow;
+      color: #ad9236;
+    }
+  }
+  .avatar {
+    color: gray;
+    width: 30px;
+    height: 30px;
+    margin-left: 8px;
+  }
+
+  .hed-acs {
+    color: #ad9236;
+  }
+`;

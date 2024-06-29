@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Search = styled.div`
-  margin-left: 850px;
+  margin-left: 780px;
 `;
 
 export const SearchInput = styled.input`

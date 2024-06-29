@@ -1,6 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Acsent, Logo, StyledHeared, StyledNav } from './Header.styled';
+import { FaUserNinja } from 'react-icons/fa';
+import {
+  Acsent,
+  Logo,
+  StyledHeared,
+  StyledNav,
+  UserWrapper,
+} from './Header.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectAuthAuthenticated,
@@ -35,12 +42,15 @@ const Header = () => {
       </StyledNav>
       <SearchBar />
       {authenticated && (
-        <div>
-          <p>Hello {user.userName}</p>
-          <button type="button" onClick={logOut}>
+        <UserWrapper>
+          <p>
+            Привіт <span className="hed-acs">{user.userName}</span>
+          </p>
+          <FaUserNinja className="avatar" />
+          <button type="button" onClick={logOut} className="exit-btn">
             Вихід
           </button>
-        </div>
+        </UserWrapper>
       )}
       {!authenticated && (
         <NavLink to={'/login'} className="login">

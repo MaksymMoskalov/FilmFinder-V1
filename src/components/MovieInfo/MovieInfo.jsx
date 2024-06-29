@@ -65,9 +65,9 @@ const MovieInfo = ({ movie, backLinkHref, movieId }) => {
               </CastBtn>
             </CastWrapper>
             <ButtonWrapper>
-              <ActionBtn type="button">
+              {/* <ActionBtn type="button">
                 До улюблених <MdFavorite className="button-icon" />
-              </ActionBtn>
+              </ActionBtn> */}
             </ButtonWrapper>
           </MovieData>
         </InfoWrapper>

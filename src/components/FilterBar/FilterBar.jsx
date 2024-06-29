@@ -12,6 +12,7 @@ import {
   SubmitButton,
 } from './FilterBar.styled';
 import { movieSortedThunk } from '../../redux/films/filmsOperations';
+import { sortMethods } from '../../service/moviesAPI';
 
 const FilterBar = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,6 @@ const FilterBar = () => {
   const onSubmit = data => {
     dispatch(movieSortedThunk(data));
     console.log(data);
-    reset();
   };
 
   return (
@@ -39,7 +39,7 @@ const FilterBar = () => {
           )}
         </div>
         <FormSelect {...register('genre')}>
-          {/* <option value="">Оберіть жанр</option> */}
+          <option value="">Жанри</option>
           {genres.map(option => (
             <option key={option.id} value={option.id}>
               {option.name}
@@ -59,6 +59,23 @@ const FilterBar = () => {
           autoComplete="off"
           className={errors.name ? 'form-input input-error' : 'form-input'}
         />
+      </FormGroup>
+
+      <FormGroup className="form__group field">
+        <div>
+          <FormLabel className="form__label">Сортувати за</FormLabel>
+          {errors.method && (
+            <ErrorMessage className="error-message">{' *'}</ErrorMessage>
+          )}
+        </div>
+        <FormSelect {...register('method')}>
+          {/* <option value="">Оберіть жанр</option> */}
+          {sortMethods.map(option => (
+            <option key={option.id} value={option.id}>
+              {option.name}
+            </option>
+          ))}
+        </FormSelect>
       </FormGroup>
 
       <SubmitButton type="submit" className="send-btn">

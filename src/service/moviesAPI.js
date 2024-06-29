@@ -6,6 +6,12 @@ export const BASE_POSTER_URL = 'https://image.tmdb.org/t/p/w185';
 export const LARGE_POSTER_URL = 'https://image.tmdb.org/t/p/w342';
 export const BASE_BACKDROP_URL = 'https://image.tmdb.org/t/p/original';
 
+export const sortMethods = [
+  { id: 'popularity.desc', name: 'Популярністю' },
+  { id: 'vote_average.desc', name: 'Рейтингом' },
+  { id: 'vote_count.desc', name: 'Переглядами' },
+];
+
 export const getDayTrendMovies = async () => {
   const { data } = await axios.get(
     `https://api.themoviedb.org/3/trending/movie/day?language=uk-UK&api_key=${API_KEY}`
@@ -66,7 +72,7 @@ export const getMovieGenres = async () => {
 export const getSortedMovies = async params => {
   console.log(params);
   const { data } = await axios.get(
-    `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&language=uk-UK&with_genres=${params.genre}&year=${params.year}&api_key=${API_KEY}`
+    `https://api.themoviedb.org/3/discover/movie?sort_by=${params.method}&language=uk-UK&with_genres=${params.genre}&year=${params.year}&api_key=${API_KEY}`
   );
   return data.results;
 };
